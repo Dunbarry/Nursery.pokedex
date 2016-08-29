@@ -5,13 +5,19 @@
   </div>
     <div class="screen">
       <h1>Welcome to {{title}}</h1>
-      <p>This site will allow any user to to dynamically search through documentation of the nursery's current inhabitants. To search the Pokedex, please follow the instructions below.</p>
-      <ul>To search by criteria, append the corresponding data to your browser's URL without quotation.
-        <li>To search by Name: "/NameYouAreSearchingFor"</li>
-        <li>By Type e.g. Electric or Water: "/type/TypeYouAreLookingFor"</li>
-        <li>By Species: "/species/SpeciesYouAreLookingFor"</li>
-        <li>To search by IV, you must enter a range to search between: "/IV/30/40"</li>
-      </ul>
+      <p>This site will allow any user to to dynamically search through documentation of the nursery's current inhabitants. To search the Pokedex, please select your criteria from the dropdown, then enter your query.</p>
+      <p>To search by please enter your query formated as a range following this format without quotation: "30-40".</p>
+      <div class="searchContain">
+        <select class="dropdown" type="dropdown">
+          <option value="" disabled selected hidden>-Select Criteria-</option>
+          <option value="name">Name</option>
+          <option value="type">Type</option>
+          <option value="species">Species</option>
+          <option value="IV">IVs</option>
+        </select>
+        <input class="query" type="text" placeholder="query"></input>
+        <input type="submit" id="submit" value="Search">
+      </div>
     </div>
   <div class="mainBottom">
     <div class="ballBottom"></div>
