@@ -4,7 +4,10 @@ function screenClear(){
     '<div class="dataContain">\
     </div>\
     <div class="circle" id="next">\
-      <div class="arrow"></div>\
+      <div class="arrowRight"></div>\
+    </div>\
+    <div class="circle" id="next">\
+      <div class="arrowLeft"></div>\
     </div>\
     <div class="searchContain">\
       <select class="dropdown" type="dropdown">\
@@ -44,10 +47,6 @@ function tabAdd(){
   </div>')
 }
 
-// function populate(){
-//
-// }
-
 $('#submit').click(function(){
   console.log("Drone fetch initiated.")
   category="/"+$('.dropdown').val();
@@ -73,16 +72,6 @@ $('#submit').click(function(){
         $('#IV'+entry).text('IV: '+data[entry].IV);
         $('#notes'+entry).text('Notes: '+data[entry].notes);
         console.log(data[entry]);
-        // <span class="dataName" id="name1"></span>\
-        // <span class="dataSpecies" id="species1"></span>\
-        // <span class="dataType" id="type1"></span>\
-        // <span class="dataArrival-a" id="arrival-a1"></span><span class="dataArrival-b" id="arrival-b1"></span>\
-        // <span class="dataRole" id="role1"></span>\
-        // <span class="dataRole" id="role1"></span>\
-        // <span class="dataMoves-a" id="moves-a1"></span><span class="dataMoves-b" id="moves-b1"></span>\
-        // <span class="dataRole" id="role1"></span>\
-        // <span class="dataIV" id="IV1"></span>\
-        // <span class="dataNotes" id="notes1"></span>\
       }
     }
   })

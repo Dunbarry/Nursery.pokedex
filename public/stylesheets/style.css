@@ -122,12 +122,22 @@ nav > span{
 }
 
 .plaque{
+  padding:.5vw;
+  height:13vw;
+  width:18vw;
   display:flex;
   flex-direction: column;
   justify-content: space-between;
-  border: .15vw solid blue;
+  background-color: #76bfd5;
+  border: .15vw lightblue;
+  border-right:groove;
+  border-bottom: groove;
+  border-top: ridge;
+  border-left: ridge;
   border-radius: 1em;
-  margin-top: 1vw;
+  margin-top: .5vw;
+  max-width: 100%;
+  max-height: 100%
 }
 
 .circle{
@@ -140,15 +150,36 @@ nav > span{
   background-color: blue;
   opacity:.7;
   float:right;
+  margin-top: 1vw;
+  margin-right: .5vw;
 }
 
-.arrow{
+.circle:hover{
+  cursor:pointer;
+}
+
+.arrowRight{
   height:0;
   width:0;
   float:right;
-  /*background-color: blue;*/
   border-top: 1vw solid transparent;
   border-bottom: 1vw solid transparent;
-  border-left: 1vw solid grey;
+  border-left: 1vw double lightgrey;
   opacity:.7;
+  margin-left: .35vw
+}
+
+.arrowLeft{
+  height:0;
+  width:0;
+  float:left;
+  border-top: 1vw solid transparent;
+  border-bottom: 1vw solid transparent;
+  border-right: 1vw double lightgrey;
+  opacity:.7;
+  margin-right: .35vw
+}
+
+.arrowLeft:hover, .arrowRight:hover{
+  cursor:pointer;
 }
