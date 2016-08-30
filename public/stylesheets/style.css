@@ -114,3 +114,41 @@ nav > span{
   padding:.5vw;
   -webkit-transition: height 2s;
 }
+
+.dataContain{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.plaque{
+  display:flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border: .15vw solid blue;
+  border-radius: 1em;
+  margin-top: 1vw;
+}
+
+.circle{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height:3vw;
+  width:3vw;
+  border-radius: 50%;
+  background-color: blue;
+  opacity:.7;
+  float:right;
+}
+
+.arrow{
+  height:0;
+  width:0;
+  float:right;
+  /*background-color: blue;*/
+  border-top: 1vw solid transparent;
+  border-bottom: 1vw solid transparent;
+  border-left: 1vw solid grey;
+  opacity:.7;
+}
