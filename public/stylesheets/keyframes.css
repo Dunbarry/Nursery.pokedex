@@ -1,0 +1,12 @@
+.online{
+  animation: mySpinAnimation 5s infinite;  /*setting animation. @keyframes/
+  animation-timing-function: ease-in-out;  /*Slows rotation*/
+  border:.25vw solid transparent;
+  border-top:.25vw solid lightgrey;
+}
+
+@keyframes mySpinAnimation {
+  0%   { transform: rotate(0deg);}
+  50%  { transform: rotate(-360deg);}
+  100% { transform: rotate(0deg);}
+}
