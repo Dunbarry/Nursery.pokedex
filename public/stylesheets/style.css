@@ -101,3 +101,16 @@ nav > span{
 .searchContain{
   margin-top: 3.75vw;
 }
+
+.findContain{
+  position: absolute;
+  height:2vw;
+  width:40vw;
+  background-color:lightblue;
+  margin-left:45vw;
+  opacity:.7;
+  border-right:.15vw solid lightgrey;
+  border-left:.15vw solid lightgrey;
+  padding:.5vw;
+  -webkit-transition: height 2s;
+}
