@@ -49,13 +49,19 @@ function tabAdd(){
   </div>')
 }
 
-// function pageState(){
-//   if(entry>=(pages){
-//     console.log('Turn on the buttons!');
-//   }
-// }
+function pageState(){
+  if(pages>1){
+    $('.circle').addClass('online');
+    $('.circle').addClass('online');
+  }
+  // else if(pages<(entry-2)){
+  //   $('.arrowLeft').removeClass('online')
+  //   $('.arrowRight').removeClass('online')
+  // }
+}
 
 function populate(data){
+  pageState();
   if(entry!=0){
     entry = pageCap;
     pageCap=pageCap+2;
@@ -73,6 +79,7 @@ function populate(data){
   }
   $('#next').click(function(){
     populate();
+    pageState();
   })
 }
 
