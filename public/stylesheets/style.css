@@ -7,6 +7,17 @@ h1{
   margin-top:0vw;
 }
 
+nav{
+  display: flex;
+  margin-bottom: .5vw;
+  margin-left: .25vw;
+}
+
+nav > span{
+  margin-right: 2.5vw
+}
+
+
 .mainTop{
   display:flex;
   justify-content: center;
@@ -82,7 +93,11 @@ h1{
   background-color:lightblue;
   margin-left:1.85vw;
   opacity:.7;
-  border-right:.25vw solid lightgrey;
-  border-left:.25vw solid lightgrey;
+  border-right:.15vw solid lightgrey;
+  border-left:.15vw solid lightgrey;
   padding:.5vw;
+}
+
+.searchContain{
+  margin-top: 3.75vw;
 }
