@@ -1,11 +1,11 @@
-@-webkit-keyframes Pulse{
+@-webkit-keyframes pulse{
     0% { -webkit-transform: scale(1.0); }
-  	50% { -webkit-transform: scale(1.5); }
+  	50% { -webkit-transform: scale(2.0); }
   	100% { -webkit-transform: scale(.9); }
 }
 
-.Pulse{
-  -webkit-animation-name: Pulse;
+.pulse{
+  -webkit-animation-name: pulse;
   -webkit-animation-duration: 1.5s;
 	-webkit-transform-origin:50% 50%;
 	-webkit-animation-iteration-count: infinite;
