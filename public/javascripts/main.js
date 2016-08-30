@@ -51,8 +51,7 @@ function tabAdd(){
 
 function pageState(){
   if(pages>1){
-    $('.circle').addClass('online');
-    $('.circle').addClass('online');
+    $('.circle').addClass('pulse');
   }
   // else if(pages<(entry-2)){
   //   $('.arrowLeft').removeClass('online')
@@ -67,18 +66,27 @@ function populate(data){
     pageCap=pageCap+2;
   }
   while(entry<pageCap){
-    $('#name'+entry).text('Name: '+data[entry].name);
-    $('#species'+entry).text('Species: '+data[entry].species);
-    $('#type'+entry).text('Type: '+data[entry].type);
-    $('#arrival'+entry).text('Arrival: '+data[entry].arrival[0]+' on '+data[entry].arrival[1]+'!');
-    $('#role'+entry).text('Role: '+data[entry]["nursery role"]);
-    $('#moves'+entry).text('Moves: '+data[entry].moves[0]+', '+data[entry].moves[1]);
-    $('#IV'+entry).text('IV: '+data[entry].IV);
-    $('#notes'+entry).text('Notes: '+data[entry].notes);
+    $('#name0').text('Name: '+data[entry].name);
+    $('#species0').text('Species: '+data[entry].species);
+    $('#type0').text('Type: '+data[entry].type);
+    $('#arrival0').text('Arrival: '+data[entry].arrival[0]+' on '+data[entry].arrival[1]+'!');
+    $('#role0').text('Role: '+data[entry]["nursery role"]);
+    $('#moves0').text('Moves: '+data[entry].moves[0]+', '+data[entry].moves[1]);
+    $('#IV0').text('IV: '+data[entry].IV);
+    $('#notes0').text('Notes: '+data[entry].notes);
+// Second entry on page
+    $('#name1').text('Name: '+data[entry].name);
+    $('#species1').text('Species: '+data[entry].species);
+    $('#type1').text('Type: '+data[entry].type);
+    $('#arrival1').text('Arrival: '+data[entry].arrival[0]+' on '+data[entry].arrival[1]+'!');
+    $('#role1').text('Role: '+data[entry]["nursery role"]);
+    $('#moves1').text('Moves: '+data[entry].moves[0]+', '+data[entry].moves[1]);
+    $('#IV1').text('IV: '+data[entry].IV);
+    $('#notes1').text('Notes: '+data[entry].notes);
     entry++;
   }
   $('#next').click(function(){
-    populate();
+    populate(data);
     pageState();
   })
 }

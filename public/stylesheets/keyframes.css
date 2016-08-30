@@ -1,12 +1,14 @@
-.online{
-  animation: mySpinAnimation 5s infinite;  /*setting animation. @keyframes/
-  animation-timing-function: ease-in-out;  /*Slows rotation*/
-  border:.25vw solid transparent;
-  border-top:.25vw solid lightgrey;
+@-webkit-keyframes Pulse{
+    0% { -webkit-transform: scale(1.0); }
+  	50% { -webkit-transform: scale(1.5); }
+  	100% { -webkit-transform: scale(.9); }
 }
 
-@keyframes mySpinAnimation {
-  0%   { transform: rotate(0deg);}
-  50%  { transform: rotate(-360deg);}
-  100% { transform: rotate(0deg);}
+.Pulse{
+  -webkit-animation-name: Pulse;
+  -webkit-animation-duration: 1.5s;
+	-webkit-transform-origin:50% 50%;
+	-webkit-animation-iteration-count: infinite;
+  -webkit-animation-timing-function: linear;
+  border: .15vw solid grey;
 }
