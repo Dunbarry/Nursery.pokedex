@@ -1,4 +1,6 @@
 var entry=0;
+var pageCap=2;
+var pages=0;
 function screenClear(){
   $('.screen').html(
     '<div class="dataContain">\
@@ -47,6 +49,33 @@ function tabAdd(){
   </div>')
 }
 
+// function pageState(){
+//   if(entry>=(pages){
+//     console.log('Turn on the buttons!');
+//   }
+// }
+
+function populate(data){
+  if(entry!=0){
+    entry = pageCap;
+    pageCap=pageCap+2;
+  }
+  while(entry<pageCap){
+    $('#name'+entry).text('Name: '+data[entry].name);
+    $('#species'+entry).text('Species: '+data[entry].species);
+    $('#type'+entry).text('Type: '+data[entry].type);
+    $('#arrival'+entry).text('Arrival: '+data[entry].arrival[0]+' on '+data[entry].arrival[1]+'!');
+    $('#role'+entry).text('Role: '+data[entry]["nursery role"]);
+    $('#moves'+entry).text('Moves: '+data[entry].moves[0]+', '+data[entry].moves[1]);
+    $('#IV'+entry).text('IV: '+data[entry].IV);
+    $('#notes'+entry).text('Notes: '+data[entry].notes);
+    entry++;
+  }
+  $('#next').click(function(){
+    populate();
+  })
+}
+
 $('#submit').click(function(){
   console.log("Drone fetch initiated.")
   category="/"+$('.dropdown').val();
@@ -62,18 +91,19 @@ $('#submit').click(function(){
     error: function(err) {console.error(err)},
     method: 'GET',
     success: function(data){
-      for(var entry in data){
-        $('#name'+entry).text('Name:    '+data[entry].name);
-        $('#species'+entry).text('Species: '+data[entry].species);
-        $('#type'+entry).text('Type: '+data[entry].type);
-        $('#arrival'+entry).text('Arrival: '+data[entry].arrival[0]+' on '+data[entry].arrival[1]+'!');
-        $('#role'+entry).text('Role: '+data[entry]["nursery role"]);
-        $('#moves'+entry).text('Moves: '+data[entry].moves[0]+','+data[entry].moves[1]);
-        $('#IV'+entry).text('IV: '+data[entry].IV);
-        $('#notes'+entry).text('Notes: '+data[entry].notes);
-        console.log(data[entry]);
+      pages=data.length/2
+      console.log(data,pages);
+      populate(data);
+      // for(var entry in data){
+      //   $('#name'+entry).text('Name:    '+data[entry].name);
+      //   $('#species'+entry).text('Species: '+data[entry].species);
+      //   $('#type'+entry).text('Type: '+data[entry].type);
+      //   $('#arrival'+entry).text('Arrival: '+data[entry].arrival[0]+' on '+data[entry].arrival[1]+'!');
+      //   $('#role'+entry).text('Role: '+data[entry]["nursery role"]);
+      //   $('#moves'+entry).text('Moves: '+data[entry].moves[0]+', '+data[entry].moves[1]);
+      //   $('#IV'+entry).text('IV: '+data[entry].IV);
+      //   $('#notes'+entry).text('Notes: '+data[entry].notes);
       }
-    }
   })
 })
 
