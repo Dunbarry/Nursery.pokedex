@@ -1,6 +1,13 @@
+var entry=0;
 function screenClear(){
   $('.screen').html(
     '<div class="dataContain">\
+    </div>\
+    <div class="circle" id="next">\
+      <div class="arrowRight"></div>\
+    </div>\
+    <div class="circle" id="next">\
+      <div class="arrowLeft"></div>\
     </div>\
     <div class="searchContain">\
       <select class="dropdown" type="dropdown">\
@@ -16,6 +23,30 @@ function screenClear(){
   )
 }
 
+function tabAdd(){
+  $('.dataContain').html(
+  '<div class="plaque">\
+    <span class="dataName" id="name0"></span>\
+    <span class="dataSpecies" id="species0"></span>\
+    <span class="dataType" id="type0"></span>\
+    <span class="dataArrival" id="arrival0"></span>\
+    <span class="dataRole" id="role0"></span>\
+    <span class="dataMoves" id="moves0"></span>\
+    <span class="dataIV" id="IV0"></span>\
+    <span class="dataNotes" id="notes0"></span>\
+  </div>\
+  <div class="plaque">\
+    <span class="dataName" id="name1"></span>\
+    <span class="dataSpecies" id="species1"></span>\
+    <span class="dataType" id="type1"></span>\
+    <span class="dataArrival" id="arrival1"></span>\
+    <span class="dataRole" id="role1"></span>\
+    <span class="dataMoves" id="moves1"></span>\
+    <span class="dataIV" id="IV1"></span>\
+    <span class="dataNotes" id="notes1"></span>\
+  </div>')
+}
+
 $('#submit').click(function(){
   console.log("Drone fetch initiated.")
   category="/"+$('.dropdown').val();
@@ -25,19 +56,26 @@ $('#submit').click(function(){
     query="";
   }
   screenClear();
+  tabAdd();
   $.ajax({
     url:'http://localhost:4242'+category+query,
     error: function(err) {console.error(err)},
     method: 'GET',
     success: function(data){
-      console.log(data)
-      findings=JSON.stringify(data);
-      $('.dataContain').text(findings);
+      for(var entry in data){
+        $('#name'+entry).text('Name:    '+data[entry].name);
+        $('#species'+entry).text('Species: '+data[entry].species);
+        $('#type'+entry).text('Type: '+data[entry].type);
+        $('#arrival'+entry).text('Arrival: '+data[entry].arrival[0]+' on '+data[entry].arrival[1]+'!');
+        $('#role'+entry).text('Role: '+data[entry]["nursery role"]);
+        $('#moves'+entry).text('Moves: '+data[entry].moves[0]+','+data[entry].moves[1]);
+        $('#IV'+entry).text('IV: '+data[entry].IV);
+        $('#notes'+entry).text('Notes: '+data[entry].notes);
+        console.log(data[entry]);
+      }
     }
   })
 })
-
-
 
 // <nav>
 //   <span>Home</span>
