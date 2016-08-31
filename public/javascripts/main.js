@@ -66,6 +66,7 @@ function populate(data){
     pageCap=pageCap+2;
   }
   while(entry<pageCap){
+    console.log(entry);
     $('#name0').text('Name: '+data[entry].name);
     $('#species0').text('Species: '+data[entry].species);
     $('#type0').text('Type: '+data[entry].type);
@@ -74,7 +75,7 @@ function populate(data){
     $('#moves0').text('Moves: '+data[entry].moves[0]+', '+data[entry].moves[1]);
     $('#IV0').text('IV: '+data[entry].IV);
     $('#notes0').text('Notes: '+data[entry].notes);
-// Second entry on page
+    entry++;
     $('#name1').text('Name: '+data[entry].name);
     $('#species1').text('Species: '+data[entry].species);
     $('#type1').text('Type: '+data[entry].type);
