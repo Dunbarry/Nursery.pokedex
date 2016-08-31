@@ -1,6 +1,7 @@
 var entry=0;
 var pageCap=2;
 var pages=0;
+var fetchedData=0;
 function screenClear(){
   $('.screen').html(
     '<div class="dataContain">\
@@ -37,7 +38,7 @@ function tabAdd(){
     <span class="dataIV" id="IV0"></span>\
     <span class="dataNotes" id="notes0"></span>\
   </div>\
-  <div class="plaque">\
+  <div class="plaque" id="halfPage">\
     <span class="dataName" id="name1"></span>\
     <span class="dataSpecies" id="species1"></span>\
     <span class="dataType" id="type1"></span>\
@@ -66,7 +67,7 @@ function populate(data){
     pageCap=pageCap+2;
   }
   while(entry<pageCap){
-    console.log(entry);
+    console.log("0")
     $('#name0').text('Name: '+data[entry].name);
     $('#species0').text('Species: '+data[entry].species);
     $('#type0').text('Type: '+data[entry].type);
@@ -76,14 +77,20 @@ function populate(data){
     $('#IV0').text('IV: '+data[entry].IV);
     $('#notes0').text('Notes: '+data[entry].notes);
     entry++;
-    $('#name1').text('Name: '+data[entry].name);
-    $('#species1').text('Species: '+data[entry].species);
-    $('#type1').text('Type: '+data[entry].type);
-    $('#arrival1').text('Arrival: '+data[entry].arrival[0]+' on '+data[entry].arrival[1]+'!');
-    $('#role1').text('Role: '+data[entry]["nursery role"]);
-    $('#moves1').text('Moves: '+data[entry].moves[0]+', '+data[entry].moves[1]);
-    $('#IV1').text('IV: '+data[entry].IV);
-    $('#notes1').text('Notes: '+data[entry].notes);
+    if((entry-0)<(fetchedData-0)){
+      console.log("1")
+      $('#name1').text('Name: '+data[entry].name);
+      $('#species1').text('Species: '+data[entry].species);
+      $('#type1').text('Type: '+data[entry].type);
+      $('#arrival1').text('Arrival: '+data[entry].arrival[0]+' on '+data[entry].arrival[1]+'!');
+      $('#role1').text('Role: '+data[entry]["nursery role"]);
+      $('#moves1').text('Moves: '+data[entry].moves[0]+', '+data[entry].moves[1]);
+      $('#IV1').text('IV: '+data[entry].IV);
+      $('#notes1').text('Notes: '+data[entry].notes);
+    }
+    else{
+      $('#halfPage').remove();
+    }
     entry++;
   }
   $('#next').click(function(){
@@ -107,6 +114,8 @@ $('#submit').click(function(){
     error: function(err) {console.error(err)},
     method: 'GET',
     success: function(data){
+      entry=0;
+      fetchedData=data.length-1;
       pages=data.length/2
       console.log(data,pages);
       populate(data);
