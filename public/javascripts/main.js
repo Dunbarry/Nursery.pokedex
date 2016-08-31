@@ -2,14 +2,15 @@ var entry=0;
 var pageCap=2;
 var pages=0;
 var fetchedData=0;
+
 function screenClear(){
   $('.screen').html(
     '<div class="dataContain">\
     </div>\
-    <div class="circle" id="next">\
+    <div class="circleNext">\
       <div class="arrowRight"></div>\
     </div>\
-    <div class="circle" id="next">\
+    <div class="circlePrev">\
       <div class="arrowLeft"></div>\
     </div>\
     <div class="searchContain">\
@@ -52,22 +53,18 @@ function tabAdd(){
 
 function pageState(){
   if(pages>1){
-    $('.circle').addClass('pulse');
+    $('.circleNext').attr('id','next');
+    $('.circleNext').addClass('pulse');
   }
-  // else if(pages<(entry-2)){
-  //   $('.arrowLeft').removeClass('online')
-  //   $('.arrowRight').removeClass('online')
-  // }
 }
 
 function populate(data){
   pageState();
   if(entry!=0){
-    entry = pageCap;
+    entry=pageCap;
     pageCap=pageCap+2;
   }
   while(entry<pageCap){
-    console.log("0")
     $('#name0').text('Name: '+data[entry].name);
     $('#species0').text('Species: '+data[entry].species);
     $('#type0').text('Type: '+data[entry].type);
@@ -78,7 +75,6 @@ function populate(data){
     $('#notes0').text('Notes: '+data[entry].notes);
     entry++;
     if((entry-0)<(fetchedData-0)){
-      console.log("1")
       $('#name1').text('Name: '+data[entry].name);
       $('#species1').text('Species: '+data[entry].species);
       $('#type1').text('Type: '+data[entry].type);
@@ -90,11 +86,15 @@ function populate(data){
     }
     else{
       $('#halfPage').remove();
+      $('.circleNext').removeAttr('next');
+      $('.circleNext').removeClass('pulse');
     }
     entry++;
   }
   $('#next').click(function(){
     populate(data);
+    $('.circlePrev').attr('id','prev');
+    $('.circlePrev').addClass('pulse');
     pageState();
   })
 }
