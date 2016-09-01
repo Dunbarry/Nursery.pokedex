@@ -13,6 +13,7 @@ $(document).on('click','#catSelect', function(){
   }
   selector++;
   $('#catSelect').text(options[selector]);
+  console.log(document.getElementById('catSelect').innerHTML);
 })
 
 function screenClear(){
@@ -139,7 +140,8 @@ $(document).on('click','#prev', function(){
 
 $('#submit').click(function(){
   console.log("Drone fetch initiated.")
-  category="/"+$('.dropdown').val();
+  category="/"+options[selector];
+  // document.getElementById('catSelect').innerHTML
   query="/"+$('.query').val();
   if(category==="/name"){
     category=query;
