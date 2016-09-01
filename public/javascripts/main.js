@@ -1,14 +1,18 @@
 var entry=0;
-var pageCap=2;
+var pageCheck=1;
+var pageCap=1;
 var pages=0;
+var fetchedData=0;
+var prevExempt=0;
+
 function screenClear(){
   $('.screen').html(
     '<div class="dataContain">\
     </div>\
-    <div class="circle" id="next">\
+    <div class="circleNext" id="next">\
       <div class="arrowRight"></div>\
     </div>\
-    <div class="circle" id="next">\
+    <div class="circlePrev" id="prev">\
       <div class="arrowLeft"></div>\
     </div>\
     <div class="searchContain">\
@@ -25,7 +29,7 @@ function screenClear(){
   )
 }
 
-function tabAdd(){
+function plaqueAdd(){
   $('.dataContain').html(
   '<div class="plaque">\
     <span class="dataName" id="name0"></span>\
@@ -37,7 +41,7 @@ function tabAdd(){
     <span class="dataIV" id="IV0"></span>\
     <span class="dataNotes" id="notes0"></span>\
   </div>\
-  <div class="plaque">\
+  <div class="plaque" id="halfPage">\
     <span class="dataName" id="name1"></span>\
     <span class="dataSpecies" id="species1"></span>\
     <span class="dataType" id="type1"></span>\
@@ -50,23 +54,27 @@ function tabAdd(){
 }
 
 function pageState(){
-  if(pages>1){
-    $('.circle').addClass('pulse');
+  if(pages>pageCheck){
+    $('.circleNext').addClass('pulse');
   }
-  // else if(pages<(entry-2)){
-  //   $('.arrowLeft').removeClass('online')
-  //   $('.arrowRight').removeClass('online')
-  // }
+  else if(pages<=pageCheck){
+    $('.circleNext').removeClass('pulse');
+  }
+  if(pageCheck>1){
+    $('.circlePrev').addClass('pulse');
+  }
+  else if(pageCheck===1){
+    $('.circlePrev').removeClass('pulse');
+  }
 }
 
 function populate(data){
-  pageState();
-  if(entry!=0){
-    entry = pageCap;
-    pageCap=pageCap+2;
+  if(entry<0){
+    entry=0;
+    pageCap=1;
   }
+  pageState();
   while(entry<pageCap){
-    console.log(entry);
     $('#name0').text('Name: '+data[entry].name);
     $('#species0').text('Species: '+data[entry].species);
     $('#type0').text('Type: '+data[entry].type);
@@ -76,21 +84,48 @@ function populate(data){
     $('#IV0').text('IV: '+data[entry].IV);
     $('#notes0').text('Notes: '+data[entry].notes);
     entry++;
-    $('#name1').text('Name: '+data[entry].name);
-    $('#species1').text('Species: '+data[entry].species);
-    $('#type1').text('Type: '+data[entry].type);
-    $('#arrival1').text('Arrival: '+data[entry].arrival[0]+' on '+data[entry].arrival[1]+'!');
-    $('#role1').text('Role: '+data[entry]["nursery role"]);
-    $('#moves1').text('Moves: '+data[entry].moves[0]+', '+data[entry].moves[1]);
-    $('#IV1').text('IV: '+data[entry].IV);
-    $('#notes1').text('Notes: '+data[entry].notes);
-    entry++;
-  }
-  $('#next').click(function(){
-    populate(data);
+    console.log(entry,pageCap);
+    if((entry-0)<(fetchedData-0)){
+      $('#name1').text('Name: '+data[entry].name);
+      $('#species1').text('Species: '+data[entry].species);
+      $('#type1').text('Type: '+data[entry].type);
+      $('#arrival1').text('Arrival: '+data[entry].arrival[0]+' on '+data[entry].arrival[1]+'!');
+      $('#role1').text('Role: '+data[entry]["nursery role"]);
+      $('#moves1').text('Moves: '+data[entry].moves[0]+', '+data[entry].moves[1]);
+      $('#IV1').text('IV: '+data[entry].IV);
+      $('#notes1').text('Notes: '+data[entry].notes);
+      entry++;
+    }
+    else{
+      $('#halfPage').remove();
+    }
     pageState();
-  })
+    console.log(entry,pageCap);
+  }
 }
+
+$(document).on('click','#next', function(){
+  if((entry-0)<=(fetchedData-0)){
+  pages--;
+  pageCheck++;
+  entry=pageCap;
+  pageCap=pageCap+2;
+  populate(found);
+  }
+})
+
+$(document).on('click','#prev', function(){
+  pages++;
+  pageCheck--;
+  pageCap=pageCap-2;
+  entry=entry-3;
+  prevExempt++;
+  console.log(entry,pageCap);
+  // screenClear();
+  plaqueAdd();
+  populate(found);
+  prevExempt--;
+})
 
 $('#submit').click(function(){
   console.log("Drone fetch initiated.")
@@ -101,12 +136,15 @@ $('#submit').click(function(){
     query="";
   }
   screenClear();
-  tabAdd();
+  plaqueAdd();
   $.ajax({
     url:'http://localhost:4242'+category+query,
     error: function(err) {console.error(err)},
     method: 'GET',
     success: function(data){
+      found=data;
+      entry=0;
+      fetchedData=data.length-1;
       pages=data.length/2
       console.log(data,pages);
       populate(data);
@@ -122,22 +160,3 @@ $('#submit').click(function(){
       }
   })
 })
-
-// <nav>
-//   <span>Home</span>
-//   <span>About</span>
-//   <span>Gallery</span>
-// </nav>
-// <h1>Welcome to {{title}}</h1>
-// <p>This site will allow any user to to dynamically search through documentation of the nursery's current inhabitants. To search the Pokedex, please select your criteria from the dropdown, then enter your query.</p>
-// <div class="searchContain">
-//   <p id="insturctions">To search by please enter your query formated as a range following this format without quotation: "30/40".</p>
-//   <select class="dropdown" type="dropdown">
-//     <option value="" disabled selected hidden>-Select Criteria-</option>
-//     <option value="name">Name</option>
-//     <option value="type">Type</option>
-//     <option value="species">Species</option>
-//     <option value="IV">IVs</option>
-//   </select>
-//   <input class="query" type="text" placeholder="query"></input>
-//   <input type="submit" id="submit" value="Search">
