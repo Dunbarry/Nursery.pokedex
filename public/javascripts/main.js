@@ -1,9 +1,19 @@
+var options=["null", "name", "type", "species", "IV"]
+var selector=0;
 var entry=0;
 var pageCheck=1;
 var pageCap=1;
 var pages=0;
 var fetchedData=0;
 var prevExempt=0;
+
+$(document).on('click','#catSelect', function(){
+  if(selector===4){
+    selector=0;
+  }
+  selector++;
+  $('#catSelect').text(options[selector]);
+})
 
 function screenClear(){
   $('.screen').html(
@@ -148,15 +158,6 @@ $('#submit').click(function(){
       pages=data.length/2
       console.log(data,pages);
       populate(data);
-      // for(var entry in data){
-      //   $('#name'+entry).text('Name:    '+data[entry].name);
-      //   $('#species'+entry).text('Species: '+data[entry].species);
-      //   $('#type'+entry).text('Type: '+data[entry].type);
-      //   $('#arrival'+entry).text('Arrival: '+data[entry].arrival[0]+' on '+data[entry].arrival[1]+'!');
-      //   $('#role'+entry).text('Role: '+data[entry]["nursery role"]);
-      //   $('#moves'+entry).text('Moves: '+data[entry].moves[0]+', '+data[entry].moves[1]);
-      //   $('#IV'+entry).text('IV: '+data[entry].IV);
-      //   $('#notes'+entry).text('Notes: '+data[entry].notes);
       }
   })
 })

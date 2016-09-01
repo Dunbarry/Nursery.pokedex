@@ -1,6 +1,7 @@
 body{
   background-image: url('./public/images/package.jpg');
   repeat: no-repeat;
+  font-size: 1.25vw;
 }
 
 h1{
@@ -16,7 +17,6 @@ nav{
 nav > span{
   margin-right: 2.5vw
 }
-
 
 .mainTop{
   display:flex;
@@ -166,6 +166,7 @@ nav > span{
   float:left;
   border-radius: 50%;
   background-color: blue;
+  color:lightgrey;
   opacity:.7;
 }
 
@@ -175,8 +176,10 @@ nav > span{
 
 input{
   /*margin-left: .5vw;*/
+  height:1.25vw;
+  width:9.5vw;
   float: left;
-  margin-top:1.16vw;
+  margin-top:1vw;
   margin-left: .5vw;
 }
 
