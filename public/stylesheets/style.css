@@ -1,6 +1,7 @@
 body{
   background-image: url('./public/images/package.jpg');
   repeat: no-repeat;
+  font-size: 1.25vw;
 }
 
 h1{
@@ -16,7 +17,6 @@ nav{
 nav > span{
   margin-right: 2.5vw
 }
-
 
 .mainTop{
   display:flex;
@@ -37,6 +37,7 @@ nav > span{
   align-items: flex-start;
   height:15vw;
   width:45vw;
+  float: left;
   background-color:hsl(0, 100%, 40%);
   border-bottom-right-radius:2em;
   border-bottom-left-radius:2em;
@@ -96,10 +97,11 @@ nav > span{
   border-right:.15vw solid lightgrey;
   border-left:.15vw solid lightgrey;
   padding:.5vw;
+  padding-bottom: .85vw;
 }
 
 .searchContain{
-  margin-top: 3.75vw;
+  margin-top: 1.75vw;
 }
 
 .findContain{
@@ -154,8 +156,31 @@ nav > span{
   margin-right: .5vw;
 }
 
-.circleNext:hover, .circlePrev:hover{
+.circleSearch{
+  display: flex;
+  /*display: inline;*/
+  align-items: center;
+  justify-content: center;
+  height:3.65vw;
+  width:3.65vw;
+  float:left;
+  border-radius: 50%;
+  background-color: blue;
+  color:lightgrey;
+  opacity:.7;
+}
+
+.circleNext:hover, .circlePrev:hover, .circleSearch:hover{
   cursor:pointer;
+}
+
+input{
+  /*margin-left: .5vw;*/
+  height:1.25vw;
+  width:9.5vw;
+  float: left;
+  margin-top:1vw;
+  margin-left: .5vw;
 }
 
 .arrowRight{
