@@ -12,3 +12,18 @@
   -webkit-animation-timing-function: linear;
   border: .15vw solid grey;
 }
+
+@-webkit-keyframes pulse1x{
+    0% { -webkit-transform: scale(1.0); }
+  	50% { -webkit-transform: scale(1.06); }
+  	100% { -webkit-transform: scale(1.0); }
+}
+
+.pulse1x{
+  -webkit-animation-name: pulse1x;
+  -webkit-animation-duration: .25s;
+	-webkit-transform-origin:50% 50%;
+	-webkit-animation-iteration-count: 1;
+  -webkit-animation-timing-function: linear;
+  border: .15vw solid grey;
+}

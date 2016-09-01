@@ -6,15 +6,15 @@ var pageCap=1;
 var pages=0;
 var fetchedData=0;
 var prevExempt=0;
+var target="";
+function pulseClear(){
+  $(target).removeClass('pulse1x');
+}
 
-$(document).on('click','#catSelect', function(){
-  if(selector===4){
-    selector=0;
-  }
-  selector++;
-  $('#catSelect').text(options[selector]);
-  console.log(document.getElementById('catSelect').innerHTML);
-})
+function pulseMgt(){
+  $(target).addClass('pulse1x');
+  setTimeout(pulseClear,251)
+}
 
 function screenClear(){
   $('.screen').html(
@@ -29,7 +29,7 @@ function screenClear(){
     <div class="searchContain">\
       <span class="circleSearch" id="catSelect">select</span>\
       <input class="query" type="text" placeholder="query"></input>\
-      <span class="circleSearch" id="go">Go!</span>\
+      <span class="circleGo" id="go">Go!</span>\
     </div>'
   )
 }
@@ -132,7 +132,20 @@ $(document).on('click','#prev', function(){
   prevExempt--;
 })
 
+$(document).on('click','#catSelect', function(){
+  target='#catSelect';
+  pulseMgt();
+  if(selector===4){
+    selector=0;
+  }
+  selector++;
+  $('#catSelect').text(options[selector]);
+  console.log(document.getElementById('catSelect').innerHTML);
+})
+
 $(document).on('click', '#go', function(){
+  target='#go';
+  pulseMgt();
   console.log("Drone fetch initiated.")
   category="/"+options[selector];
   // document.getElementById('catSelect').innerHTML

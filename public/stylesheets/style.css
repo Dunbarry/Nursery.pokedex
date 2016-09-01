@@ -27,7 +27,6 @@ nav > span{
   background-color:hsl(0, 100%, 40%);
   border-top-right-radius:2em;
   border-top-left-radius:2em;
-  /*border-bottom:.5vw solid white;*/
   box-shadow: 1vw 1vw .5vw #888888;
 }
 
@@ -50,7 +49,6 @@ nav > span{
   width:25vw;
   background-color: black;
   border-radius:25vw 25vw 0vw 0vw;
-  /*margin-left: 10vw;*/
   border-top:.5vw solid white;
   border-right:.5vw solid white;
   border-left:.5vw solid white;
@@ -63,7 +61,6 @@ nav > span{
   width:25vw;
   background-color: black;
   border-radius:0vw 0vw 25vw 25vw;
-  /*margin-left: 10vw;*/
   border-bottom:.5vw solid white;
   border-right:.5vw solid white;
   border-left:.5vw solid white;
@@ -157,8 +154,8 @@ nav > span{
 }
 
 .circleSearch{
+  position:absolute;
   display: flex;
-  /*display: inline;*/
   align-items: center;
   justify-content: center;
   height:3.65vw;
@@ -168,20 +165,37 @@ nav > span{
   background-color: blue;
   color:lightgrey;
   opacity:.7;
+  z-index: 1;
+  -webkit-transform: scale .25s;
 }
 
-.circleNext:hover, .circlePrev:hover, .circleSearch:hover{
+.circleGo{
+  position:absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height:3.65vw;
+  width:3.65vw;
+  border-radius: 50%;
+  margin-left: 14.75vw;
+  background-color: blue;
+  color:lightgrey;
+  opacity:.7;
+  z-index: 1;
+  -webkit-transform: scale .25s;
+}
+
+.circleNext:hover, .circlePrev:hover, .circleSearch:hover, .circleGo:hover{
   cursor:pointer;
 }
 
 input{
-  /*margin-left: .5vw;*/
   height:1.25vw;
   width:9.5vw;
   float: left;
   margin-top:1vw;
-  margin-left: .5vw;
-  margin-right: .5vw;
+  margin-left: 4.25vw;
+  margin-right: .75vw;
 }
 
 .arrowRight{
