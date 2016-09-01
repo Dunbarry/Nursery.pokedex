@@ -27,15 +27,9 @@ function screenClear(){
       <div class="arrowLeft"></div>\
     </div>\
     <div class="searchContain">\
-      <select class="dropdown" type="dropdown">\
-        <option value="" disabled selected hidden>-Select Criteria-</option>\
-        <option value="name">Name</option>\
-        <option value="type">Type</option>\
-        <option value="species">Species</option>\
-        <option value="IV">IVs</option>\
-      </select>\
+      <span class="circleSearch" id="catSelect">select</span>\
       <input class="query" type="text" placeholder="query"></input>\
-      <input type="submit" id="submit" value="Search">\
+      <span class="circleSearch" id="go">Go!</span>\
     </div>'
   )
 }
@@ -138,7 +132,7 @@ $(document).on('click','#prev', function(){
   prevExempt--;
 })
 
-$('#submit').click(function(){
+$(document).on('click', '#go', function(){
   console.log("Drone fetch initiated.")
   category="/"+options[selector];
   // document.getElementById('catSelect').innerHTML
