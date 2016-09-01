@@ -105,11 +105,13 @@ function populate(data){
 }
 
 $(document).on('click','#next', function(){
+  if((entry-0)<=(fetchedData-0)){
   pages--;
   pageCheck++;
   entry=pageCap;
   pageCap=pageCap+2;
   populate(found);
+  }
 })
 
 $(document).on('click','#prev', function(){
