@@ -37,6 +37,7 @@ nav > span{
   align-items: flex-start;
   height:15vw;
   width:45vw;
+  float: left;
   background-color:hsl(0, 100%, 40%);
   border-bottom-right-radius:2em;
   border-bottom-left-radius:2em;
@@ -96,10 +97,11 @@ nav > span{
   border-right:.15vw solid lightgrey;
   border-left:.15vw solid lightgrey;
   padding:.5vw;
+  padding-bottom: .85vw;
 }
 
 .searchContain{
-  margin-top: 3.75vw;
+  margin-top: 1.75vw;
 }
 
 .findContain{
@@ -154,8 +156,28 @@ nav > span{
   margin-right: .5vw;
 }
 
-.circleNext:hover, .circlePrev:hover{
+.circleSearch{
+  display: flex;
+  /*display: inline;*/
+  align-items: center;
+  justify-content: center;
+  height:3.65vw;
+  width:3.65vw;
+  float:left;
+  border-radius: 50%;
+  background-color: blue;
+  opacity:.7;
+}
+
+.circleNext:hover, .circlePrev:hover, .circleSearch:hover{
   cursor:pointer;
+}
+
+input{
+  /*margin-left: .5vw;*/
+  float: left;
+  margin-top:1.16vw;
+  margin-left: .5vw;
 }
 
 .arrowRight{
