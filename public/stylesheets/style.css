@@ -38,6 +38,7 @@ nav > span{
   width:45vw;
   float: left;
   background-color:hsl(0, 100%, 40%);
+  margin-top: .5vw;
   border-bottom-right-radius:2em;
   border-bottom-left-radius:2em;
   box-shadow: 1vw 1vw .5vw #888888;
@@ -118,6 +119,7 @@ nav > span{
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  padding-bottom: 0;
 }
 
 .plaque{
@@ -134,7 +136,7 @@ nav > span{
   border-top: ridge;
   border-left: ridge;
   border-radius: 1em;
-  margin-top: .5vw;
+  margin-top: .25vw;
   max-width: 100%;
   max-height: 100%
 }

@@ -7,6 +7,7 @@ var pages=0;
 var fetchedData=0;
 var prevExempt=0;
 var target="";
+
 function pulseClear(){
   $(target).removeClass('pulse1x');
 }
@@ -32,6 +33,7 @@ function screenClear(){
       <span class="circleGo" id="go">Go!</span>\
     </div>'
   )
+  $('#catSelect').text(options[selector]);
 }
 
 function plaqueAdd(){
@@ -62,13 +64,11 @@ function pageState(){
   if(pages>pageCheck){
     $('.circleNext').addClass('pulse');
   }
-  else if(pages<=pageCheck){
+  else if(pages<=pageCheck&&pageCheck>1){
     $('.circleNext').removeClass('pulse');
-  }
-  if(pageCheck>1){
     $('.circlePrev').addClass('pulse');
   }
-  else if(pageCheck===1){
+  if(pageCheck<=1){
     $('.circlePrev').removeClass('pulse');
   }
 }
@@ -90,7 +90,7 @@ function populate(data){
     $('#notes0').text('Notes: '+data[entry].notes);
     entry++;
     console.log(entry,pageCap);
-    if((entry-0)<(fetchedData-0)){
+    if((entry-0)<=(fetchedData-0)){
       $('#name1').text('Name: '+data[entry].name);
       $('#species1').text('Species: '+data[entry].species);
       $('#type1').text('Type: '+data[entry].type);
@@ -111,25 +111,24 @@ function populate(data){
 
 $(document).on('click','#next', function(){
   if((entry-0)<=(fetchedData-0)){
-  pages--;
   pageCheck++;
-  entry=pageCap;
   pageCap=pageCap+2;
   populate(found);
   }
 })
 
 $(document).on('click','#prev', function(){
-  pages++;
-  pageCheck--;
-  pageCap=pageCap-2;
-  entry=entry-3;
-  prevExempt++;
-  console.log(entry,pageCap);
-  // screenClear();
-  plaqueAdd();
-  populate(found);
-  prevExempt--;
+  if(pageCheck>1){
+    pageCheck--;
+    pageCap=pageCap-2;
+    entry=entry-3;
+    prevExempt++;
+    console.log(entry,pageCap);
+    // screenClear();
+    plaqueAdd();
+    populate(found);
+    prevExempt--;
+  }
 })
 
 $(document).on('click','#catSelect', function(){
