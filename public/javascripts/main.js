@@ -89,7 +89,6 @@ function populate(data){
     $('#IV0').text('IV: '+data[entry].IV);
     $('#notes0').text('Notes: '+data[entry].notes);
     entry++;
-    console.log(entry,pageCap);
     if((entry-0)<=(fetchedData-0)){
       $('#name1').text('Name: '+data[entry].name);
       $('#species1').text('Species: '+data[entry].species);
@@ -105,7 +104,6 @@ function populate(data){
       $('#halfPage').remove();
     }
     pageState();
-    console.log(entry,pageCap);
   }
 }
 
@@ -123,8 +121,6 @@ $(document).on('click','#prev', function(){
     pageCap=pageCap-2;
     entry=pageCap-1;
     prevExempt++;
-    console.log(entry,pageCap);
-    // screenClear();
     plaqueAdd();
     populate(found);
     prevExempt--;
@@ -139,13 +135,12 @@ $(document).on('click','#catSelect', function(){
   }
   selector++;
   $('#catSelect').text(options[selector]);
-  console.log(document.getElementById('catSelect').innerHTML);
+  // console.log(document.getElementById('catSelect').innerHTML);
 })
 
 $(document).on('click', '#go', function(){
   target='#go';
   pulseMgt();
-  console.log("Drone fetch initiated.")
   category="/"+options[selector];
   // document.getElementById('catSelect').innerHTML
   query="/"+$('.query').val();
@@ -167,7 +162,6 @@ $(document).on('click', '#go', function(){
       }
       fetchedData=data.length-1;
       pages=data.length/2
-      console.log(data,pages);
       populate(data);
       }
   })
