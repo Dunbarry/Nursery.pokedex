@@ -6,15 +6,16 @@ var pageCap=1;
 var pages=0;
 var fetchedData=0;
 var prevExempt=0;
+var target="";
 
-$(document).on('click','#catSelect', function(){
-  if(selector===4){
-    selector=0;
-  }
-  selector++;
-  $('#catSelect').text(options[selector]);
-  console.log(document.getElementById('catSelect').innerHTML);
-})
+function pulseClear(){
+  $(target).removeClass('pulse1x');
+}
+
+function pulseMgt(){
+  $(target).addClass('pulse1x');
+  setTimeout(pulseClear,251)
+}
 
 function screenClear(){
   $('.screen').html(
@@ -27,17 +28,12 @@ function screenClear(){
       <div class="arrowLeft"></div>\
     </div>\
     <div class="searchContain">\
-      <select class="dropdown" type="dropdown">\
-        <option value="" disabled selected hidden>-Select Criteria-</option>\
-        <option value="name">Name</option>\
-        <option value="type">Type</option>\
-        <option value="species">Species</option>\
-        <option value="IV">IVs</option>\
-      </select>\
+      <span class="circleSearch" id="catSelect">select</span>\
       <input class="query" type="text" placeholder="query"></input>\
-      <input type="submit" id="submit" value="Search">\
+      <span class="circleGo" id="go">Go!</span>\
     </div>'
   )
+  $('#catSelect').text(options[selector]);
 }
 
 function plaqueAdd(){
@@ -68,13 +64,11 @@ function pageState(){
   if(pages>pageCheck){
     $('.circleNext').addClass('pulse');
   }
-  else if(pages<=pageCheck){
+  else if(pages<=pageCheck&&pageCheck>1){
     $('.circleNext').removeClass('pulse');
-  }
-  if(pageCheck>1){
     $('.circlePrev').addClass('pulse');
   }
-  else if(pageCheck===1){
+  if(pageCheck<=1){
     $('.circlePrev').removeClass('pulse');
   }
 }
@@ -96,7 +90,7 @@ function populate(data){
     $('#notes0').text('Notes: '+data[entry].notes);
     entry++;
     console.log(entry,pageCap);
-    if((entry-0)<(fetchedData-0)){
+    if((entry-0)<=(fetchedData-0)){
       $('#name1').text('Name: '+data[entry].name);
       $('#species1').text('Species: '+data[entry].species);
       $('#type1').text('Type: '+data[entry].type);
@@ -117,28 +111,40 @@ function populate(data){
 
 $(document).on('click','#next', function(){
   if((entry-0)<=(fetchedData-0)){
-  pages--;
   pageCheck++;
-  entry=pageCap;
   pageCap=pageCap+2;
   populate(found);
   }
 })
 
 $(document).on('click','#prev', function(){
-  pages++;
-  pageCheck--;
-  pageCap=pageCap-2;
-  entry=entry-3;
-  prevExempt++;
-  console.log(entry,pageCap);
-  // screenClear();
-  plaqueAdd();
-  populate(found);
-  prevExempt--;
+  if(pageCheck>1){
+    pageCheck--;
+    pageCap=pageCap-2;
+    entry=pageCap-1;
+    prevExempt++;
+    console.log(entry,pageCap);
+    // screenClear();
+    plaqueAdd();
+    populate(found);
+    prevExempt--;
+  }
 })
 
-$('#submit').click(function(){
+$(document).on('click','#catSelect', function(){
+  target='#catSelect';
+  pulseMgt();
+  if(selector===4){
+    selector=0;
+  }
+  selector++;
+  $('#catSelect').text(options[selector]);
+  console.log(document.getElementById('catSelect').innerHTML);
+})
+
+$(document).on('click', '#go', function(){
+  target='#go';
+  pulseMgt();
   console.log("Drone fetch initiated.")
   category="/"+options[selector];
   // document.getElementById('catSelect').innerHTML
@@ -156,6 +162,9 @@ $('#submit').click(function(){
     success: function(data){
       found=data;
       entry=0;
+      if(options[selector]==="name"){
+        data=[data]
+      }
       fetchedData=data.length-1;
       pages=data.length/2
       console.log(data,pages);
