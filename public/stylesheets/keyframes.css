@@ -28,3 +28,31 @@
   -webkit-animation-timing-function: linear;
   border: .15vw solid grey;
 }
+
+@-webkit-keyframes openTop{
+0%    { -webkit-transform: translate(0px, 20vh); }
+75%   { -webkit-transform: translate(0px, 20vh); }
+100%  { -webkit-transform: translate(0px, 0px); }
+}
+
+.openTop{
+  -webkit-animation-name: openTop;
+  -webkit-animation-duration: 3s;
+	-webkit-transform-origin:50% 50%;
+	-webkit-animation-iteration-count: 1;
+  -webkit-animation-timing-function: linear;
+}
+
+@-webkit-keyframes openBottom{
+0%    { -webkit-transform: translate(0px, -20vh); }
+75%   { -webkit-transform: translate(0px, -20vh); }
+100%  { -webkit-transform: translate(0px, 0px); }
+}
+
+.openBottom{
+  -webkit-animation-name: openBottom;
+  -webkit-animation-duration: 3s;
+	-webkit-transform-origin:50% 50%;
+	-webkit-animation-iteration-count: 1;
+  -webkit-animation-timing-function: linear;
+}
