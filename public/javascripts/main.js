@@ -156,7 +156,7 @@ $(document).on('click', '#go', function(){
   screenClear();
   plaqueAdd();
   $.ajax({
-    url:'http://localhost:4242'+category+query,
+    url:category+query,
     error: function(err) {console.error(err)},
     method: 'GET',
     success: function(data){
