@@ -121,7 +121,7 @@ $(document).on('click','#prev', function(){
   if(pageCheck>1){
     pageCheck--;
     pageCap=pageCap-2;
-    entry=entry-3;
+    entry=pageCap-1;
     prevExempt++;
     console.log(entry,pageCap);
     // screenClear();
@@ -162,6 +162,9 @@ $(document).on('click', '#go', function(){
     success: function(data){
       found=data;
       entry=0;
+      if(options[selector]==="name"){
+        data=[data]
+      }
       fetchedData=data.length-1;
       pages=data.length/2
       console.log(data,pages);

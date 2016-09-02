@@ -11,6 +11,7 @@
 	-webkit-animation-iteration-count: infinite;
   -webkit-animation-timing-function: linear;
   border: .15vw solid grey;
+  background-color: blue;
 }
 
 @-webkit-keyframes pulse1x{
