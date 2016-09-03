@@ -17,15 +17,18 @@ nav > span{
 }
 
 .mainTop{
+  position: absolute;
   display:flex;
   justify-content: center;
   align-items: flex-end;
   height:15vw;
   width:45vw;
+  top:.5vw;
   background-color:hsl(0, 100%, 40%);
   border-top-right-radius:2em;
   border-top-left-radius:2em;
   box-shadow: 1vw 1vw .5vw #888888;
+  z-index: 1;
 }
 
 .mainBottom{
@@ -55,6 +58,7 @@ nav > span{
 }
 
 .ballBottom{
+  position:absolute;
   display: flex;
   height:12.5vw;
   width:25vw;
@@ -66,6 +70,44 @@ nav > span{
   box-shadow: .11vw .1vw .11vw grey;
 }
 
+.rotateBall{
+  position: absolute;
+  top:3.5vw;
+  height:25vw;
+  width: auto;
+}
+
+/*.rotateBall{
+  position:absolute;
+  height:27.2vw;
+  width:auto;
+  z-index:20;
+  margin-left: 9.45vw;
+  top:13.25vw;
+}
+
+.rotateTop{
+  display: flex;
+  height:12.75vw;
+  width:25.75vw;
+  background-color: black;
+  border-radius:25vw 25vw 0vw 0vw;
+  border:.5vw solid white;
+  box-shadow: .11vw .1vw .11vw #888888;
+}
+
+.rotateBottom{
+  position:absolute;
+  display: flex;
+  height:12.5vw;
+  width:25.75vw;
+
+  background-color: black;
+  border-radius:0vw 0vw 25vw 25vw;
+  border:.5vw solid white;
+  box-shadow: .11vw .1vw .11vw grey;
+}*/
+
 .beltTop{
   position:absolute;
   height:1vw;
@@ -76,7 +118,6 @@ nav > span{
 }
 
 .beltBottom{
-  position:absolute;
   height:1vw;
   width:45vw;
   background-color:white;
@@ -88,6 +129,7 @@ nav > span{
   height:20vw;
   width:40vw;
   background-color:lightblue;
+  margin-top: 16vw;
   margin-left:1.85vw;
   opacity:.7;
   border-right:.15vw solid lightgrey;

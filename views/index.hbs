@@ -1,6 +1,12 @@
 <div class="container">
-  <div class="mainTop">
-    <div class="ballTop"></div>
+  <!-- <div class="rotateBall">
+    <div class="rotateTop"></div>
+    <div class="rotateBottom"></div>
+  </div> -->
+  <div class="mainTop openTop">
+    <div class="rotateBall">
+      <div class="ballTop"></div>
+    </div>
     <div class="beltTop"></div>
   </div>
   <div class="screen">
@@ -14,20 +20,13 @@
     <p>This site will allow any user to to dynamically search through documentation of the nursery's current inhabitants. To search the Pokedex, please select your criteria from the dropdown, then enter your query.</p>
     <div class="searchContain">
       <p id="instructions">To search by IV query must be entered as a range following this format without quotation: "30/40".</p>
-      <!-- <select class="dropdown" type="dropdown">
-        <option value="" disabled selected hidden>-Select Criteria-</option>
-        <option value="name">Name</option>
-        <option value="type">Type</option>
-        <option value="species">Species</option>
-        <option value="IV">IVs</option>
-      </select> -->
       <span class="circleSearch" id="catSelect">select</span>
       <input class="query" type="text" placeholder="query"></input>
       <span class="circleGo" id="go">Go!</span>
     </div>
   </div>
-  <div class="mainBottom">
-    <div class="ballBottom"></div>
+  <div class="mainBottom openBottom">
+    <div class="ballBottom "></div>
     <div class="beltBottom"></div>
   </div>
 </div>
