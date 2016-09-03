@@ -8,6 +8,12 @@ var fetchedData=0;
 var prevExempt=0;
 var target="";
 
+// function ballCheat(){
+//   $('.rotateBall').remove();
+//   $('.rotateBottom').remove();
+//   $('.rotateTop').remove();
+// }
+
 function pulseClear(){
   $(target).removeClass('pulse1x');
 }
@@ -166,3 +172,7 @@ $(document).on('click', '#go', function(){
       }
   })
 })
+
+// $(document).ready(function(){
+//   setTimeout(ballCheat,1950);
+// });
