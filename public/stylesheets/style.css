@@ -70,6 +70,13 @@ nav > span{
   box-shadow: .11vw .1vw .11vw grey;
 }
 
+.rotateBall{
+  position: absolute;
+  top:3.5vw;
+  height:25vw;
+  width: auto;
+}
+
 /*.rotateBall{
   position:absolute;
   height:27.2vw;
