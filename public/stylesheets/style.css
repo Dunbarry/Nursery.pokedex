@@ -38,8 +38,8 @@ nav > span{
   height:15vw;
   width:45vw;
   float: left;
+  margin-top: .25vw;
   background-color:hsl(0, 100%, 40%);
-  margin-top: .5vw;
   border-bottom-right-radius:2em;
   border-bottom-left-radius:2em;
   box-shadow: 1vw 1vw .5vw #888888;
@@ -71,42 +71,41 @@ nav > span{
 }
 
 .rotateBall{
+  display: flex;
+  align-content: center;
+  justify-content: center;
   position: absolute;
-  top:3.5vw;
-  height:25vw;
-  width: auto;
+  top:12.25vw;
+  height:5vw;
+  width: 5vw;
+  border-radius: 50%;
+  background-color: white;
+  z-index:30;
 }
 
-/*.rotateBall{
-  position:absolute;
-  height:27.2vw;
-  width:auto;
-  z-index:20;
-  margin-left: 9.45vw;
-  top:13.25vw;
-}
-
-.rotateTop{
+.innerBall{
   display: flex;
-  height:12.75vw;
-  width:25.75vw;
-  background-color: black;
-  border-radius:25vw 25vw 0vw 0vw;
-  border:.5vw solid white;
-  box-shadow: .11vw .1vw .11vw #888888;
+  position: absolute;
+  top:.45vw;
+  margin-right: .25vw;
+  height:3.9vw;
+  width: 3.9vw;
+  border: .1vw solid lightgrey;
+  border-radius: 50%;
+  background-color: white;
+  box-shadow: .25vw .25vw .1vw #888888;
+  z-index:30;
 }
 
-.rotateBottom{
+.spinTop{
   position:absolute;
-  display: flex;
-  height:12.5vw;
-  width:25.75vw;
-
-  background-color: black;
-  border-radius:0vw 0vw 25vw 25vw;
-  border:.5vw solid white;
-  box-shadow: .11vw .1vw .11vw grey;
-}*/
+  height:1vw;
+  width:25vw;
+  background-color:white;
+  top:2.25vw;
+  /*box-shadow: .25vw .25vw .1vw #888888;*/
+  z-index:25;
+}
 
 .beltTop{
   position:absolute;
@@ -118,11 +117,13 @@ nav > span{
 }
 
 .beltBottom{
+  position: absolute;
   height:1vw;
   width:45vw;
   background-color:white;
   top:36.65vw;
   box-shadow: .11vw .1vw .11vw #888888;
+  z-index: 10;
 }
 
 .screen{
