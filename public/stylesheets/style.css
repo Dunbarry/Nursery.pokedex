@@ -85,6 +85,18 @@ nav > span{
   z-index:30;
 }
 
+.buttonDivot{
+  display: flex;
+  margin-left:10vw;
+  position:absolute;
+  display: flex;
+  height:2.5vw;
+  width:5vw;
+  background-color: black;
+  border-radius:0vw 0vw 25vw 25vw;
+  /*box-shadow: .11vw .1vw .11vw grey;*/
+}
+
 .innerBall{
   display: flex;
   position: absolute;
