@@ -22,7 +22,7 @@ nav > span{
   justify-content: center;
   align-items: flex-end;
   height:15vw;
-  width:45vw;
+  width:44.9vw;
   top:.5vw;
   background-image: url('../images/star-field.jpg');
   background-repeat: no-repeat;
@@ -38,7 +38,7 @@ nav > span{
   justify-content: center;
   align-items: flex-start;
   height:15vw;
-  width:45vw;
+  width:44.9vw;
   float: left;
   background-image: url('../images/horizon-dark.jpg');
   background-repeat: no-repeat;
@@ -77,7 +77,7 @@ nav > span{
   align-content: center;
   justify-content: center;
   position: absolute;
-  top:12.25vw;
+  top:12.75vw;
   height:5vw;
   width: 5vw;
   border-radius: 50%;
@@ -85,10 +85,22 @@ nav > span{
   z-index:30;
 }
 
+.buttonDivot{
+  display: flex;
+  margin-left:10vw;
+  position:absolute;
+  display: flex;
+  height:2.5vw;
+  width:5vw;
+  background-color: black;
+  border-radius:0vw 0vw 25vw 25vw;
+  /*box-shadow: .11vw .1vw .11vw grey;*/
+}
+
 .innerBall{
   display: flex;
   position: absolute;
-  top:.45vw;
+  top:.5vw;
   margin-right: .25vw;
   height:3.9vw;
   width: 3.9vw;
@@ -101,16 +113,16 @@ nav > span{
 .spinTop{
   position:absolute;
   height:1vw;
-  width:25vw;
+  width:25.25vw;
   background-color:black;
-  top:2.4vw;
+  top:1.95vw;
   z-index:25;
 }
 
 .beltTop{
   position:absolute;
   height:1vw;
-  width:45vw;
+  width:45.1vw;
   background-color:black;
   top:14.65vw;
   box-shadow: .25vw .25vw .1vw #888888;
@@ -118,7 +130,7 @@ nav > span{
 
 .beltBottom{
   height:1vw;
-  width:45vw;
+  width:45.1vw;
   background-color:black;
   top:36.65vw;
   z-index: 10;
@@ -175,7 +187,7 @@ nav > span{
   border-top: ridge;
   border-left: ridge;
   border-radius: 1em;
-  margin-top: .25vw;
+  margin-top: .7vw;
   max-width: 100%;
   max-height: 100%
 }
