@@ -24,7 +24,9 @@ nav > span{
   height:15vw;
   width:45vw;
   top:.5vw;
-  background-color:hsl(0, 100%, 40%);
+  background-image: url('../images/star-field.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
   border-top-right-radius:2em;
   border-top-left-radius:2em;
   box-shadow: 1vw 1vw .5vw #888888;
@@ -38,7 +40,9 @@ nav > span{
   height:15vw;
   width:45vw;
   float: left;
-  background-color:hsl(0, 100%, 40%);
+  background-image: url('../images/horizon-dark.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
   border-bottom-right-radius:2em;
   border-bottom-left-radius:2em;
   box-shadow: 1vw 1vw .5vw #888888;
@@ -48,12 +52,11 @@ nav > span{
   display: flex;
   height:12.5vw;
   width:25vw;
-  background-color: black;
+  background-color: red;
   border-radius:25vw 25vw 0vw 0vw;
-  border-top:.5vw solid white;
-  border-right:.5vw solid white;
-  border-left:.5vw solid white;
-  box-shadow: .11vw .1vw .11vw #888888;
+  border-top:.5vw solid black;
+  border-right:.5vw solid black;
+  border-left:.5vw solid black;
 }
 
 .ballBottom{
@@ -61,12 +64,12 @@ nav > span{
   display: flex;
   height:12.5vw;
   width:25vw;
-  background-color: black;
+  background-color: white;
   border-radius:0vw 0vw 25vw 25vw;
-  border-bottom:.5vw solid white;
-  border-right:.5vw solid white;
-  border-left:.5vw solid white;
-  box-shadow: .11vw .1vw .11vw grey;
+  border-bottom:.5vw solid black;
+  border-right:.5vw solid black;
+  border-left:.5vw solid black;
+  /*box-shadow: .11vw .1vw .11vw grey;*/
 }
 
 .rotateBall{
@@ -78,7 +81,7 @@ nav > span{
   height:5vw;
   width: 5vw;
   border-radius: 50%;
-  background-color: white;
+  background-color: black;
   z-index:30;
 }
 
@@ -92,7 +95,6 @@ nav > span{
   border: .1vw solid lightgrey;
   border-radius: 50%;
   background-color: white;
-  box-shadow: .25vw .25vw .1vw #888888;
   z-index:30;
 }
 
@@ -100,8 +102,8 @@ nav > span{
   position:absolute;
   height:1vw;
   width:25vw;
-  background-color:white;
-  top:2.25vw;
+  background-color:black;
+  top:2.4vw;
   z-index:25;
 }
 
@@ -109,18 +111,16 @@ nav > span{
   position:absolute;
   height:1vw;
   width:45vw;
-  background-color:white;
+  background-color:black;
   top:14.65vw;
   box-shadow: .25vw .25vw .1vw #888888;
 }
 
 .beltBottom{
-  /*position: absolute;*/
   height:1vw;
   width:45vw;
-  background-color:white;
+  background-color:black;
   top:36.65vw;
-  box-shadow: .11vw .1vw .11vw #888888;
   z-index: 10;
 }
 

@@ -33,7 +33,7 @@
 0%    { -webkit-transform: translate(0px, 11vw); }
 0%    { box-shadow: none; }
 75%   { -webkit-transform: translate(0px, 11vw); }
-75%   { box-shadow: none; }
+100%  { box-shadow: none; }
 100%  { -webkit-transform: translate(0px, 0vw); }
 }
 
