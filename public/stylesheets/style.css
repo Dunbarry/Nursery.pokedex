@@ -22,7 +22,7 @@ nav > span{
   justify-content: center;
   align-items: flex-end;
   height:15vw;
-  width:45vw;
+  width:44.9vw;
   top:.5vw;
   background-image: url('../images/star-field.jpg');
   background-repeat: no-repeat;
@@ -38,7 +38,7 @@ nav > span{
   justify-content: center;
   align-items: flex-start;
   height:15vw;
-  width:45vw;
+  width:44.9vw;
   float: left;
   background-image: url('../images/horizon-dark.jpg');
   background-repeat: no-repeat;
@@ -122,7 +122,7 @@ nav > span{
 .beltTop{
   position:absolute;
   height:1vw;
-  width:45vw;
+  width:45.1vw;
   background-color:black;
   top:14.65vw;
   box-shadow: .25vw .25vw .1vw #888888;
@@ -130,7 +130,7 @@ nav > span{
 
 .beltBottom{
   height:1vw;
-  width:45vw;
+  width:45.1vw;
   background-color:black;
   top:36.65vw;
   z-index: 10;
