@@ -73,13 +73,13 @@
 }
 
 @-webkit-keyframes innerShadow{
-0%    { box-shadow: none; }
-75%    { box-shadow: none; }
+0%    { opacity: 0; }
+100%    { opacity: 0; }
 }
 
 .innerShadow{
   -webkit-animation-name: innerShadow;
-  -webkit-animation-duration: 2s;
+  -webkit-animation-duration: 2.2s;
 	-webkit-transform-origin:50% 50%;
 	-webkit-animation-iteration-count: 1;
   -webkit-animation-timing-function: linear;
