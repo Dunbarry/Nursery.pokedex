@@ -111,7 +111,8 @@ nav > span{
 }
 
 .innerBall:hover{
-  -webkit-transform: scale(1.03);
+  -webkit-transform: scale(1.06);
+  cursor: pointer;
 }
 
 .spinTop{
