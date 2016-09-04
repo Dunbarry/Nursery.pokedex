@@ -8,12 +8,6 @@ var fetchedData=0;
 var prevExempt=0;
 var target="";
 
-// function ballCheat(){
-//   $('.rotateBall').remove();
-//   $('.rotateBottom').remove();
-//   $('.rotateTop').remove();
-// }
-
 function pulseClear(){
   $(target).removeClass('pulse1x');
 }
@@ -49,7 +43,6 @@ function plaqueAdd(){
     <span class="dataSpecies" id="species0"></span>\
     <span class="dataType" id="type0"></span>\
     <span class="dataArrival" id="arrival0"></span>\
-    <span class="dataRole" id="role0"></span>\
     <span class="dataMoves" id="moves0"></span>\
     <span class="dataIV" id="IV0"></span>\
     <span class="dataNotes" id="notes0"></span>\
@@ -59,7 +52,6 @@ function plaqueAdd(){
     <span class="dataSpecies" id="species1"></span>\
     <span class="dataType" id="type1"></span>\
     <span class="dataArrival" id="arrival1"></span>\
-    <span class="dataRole" id="role1"></span>\
     <span class="dataMoves" id="moves1"></span>\
     <span class="dataIV" id="IV1"></span>\
     <span class="dataNotes" id="notes1"></span>\
@@ -90,7 +82,6 @@ function populate(data){
     $('#species0').text('Species: '+data[entry].species);
     $('#type0').text('Type: '+data[entry].type);
     $('#arrival0').text('Arrival: '+data[entry].arrival[0]+' on '+data[entry].arrival[1]+'!');
-    $('#role0').text('Role: '+data[entry]["nursery role"]);
     $('#moves0').text('Moves: '+data[entry].moves[0]+', '+data[entry].moves[1]);
     $('#IV0').text('IV: '+data[entry].IV);
     $('#notes0').text('Notes: '+data[entry].notes);
@@ -100,7 +91,6 @@ function populate(data){
       $('#species1').text('Species: '+data[entry].species);
       $('#type1').text('Type: '+data[entry].type);
       $('#arrival1').text('Arrival: '+data[entry].arrival[0]+' on '+data[entry].arrival[1]+'!');
-      $('#role1').text('Role: '+data[entry]["nursery role"]);
       $('#moves1').text('Moves: '+data[entry].moves[0]+', '+data[entry].moves[1]);
       $('#IV1').text('IV: '+data[entry].IV);
       $('#notes1').text('Notes: '+data[entry].notes);
@@ -141,7 +131,6 @@ $(document).on('click','#catSelect', function(){
   }
   selector++;
   $('#catSelect').text(options[selector]);
-  // console.log(document.getElementById('catSelect').innerHTML);
 })
 
 $(document).on('click', '#go', function(){
@@ -172,7 +161,3 @@ $(document).on('click', '#go', function(){
       }
   })
 })
-
-// $(document).ready(function(){
-//   setTimeout(ballCheat,1950);
-// });
