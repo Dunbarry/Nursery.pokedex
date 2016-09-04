@@ -110,6 +110,10 @@ nav > span{
   z-index:30;
 }
 
+.innerBall:hover{
+  -webkit-transform: scale(1.03);
+}
+
 .spinTop{
   position:absolute;
   height:1vw;

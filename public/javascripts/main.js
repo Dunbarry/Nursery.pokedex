@@ -103,6 +103,11 @@ function populate(data){
   }
 }
 
+$('.innerBall').click(function(){
+  target=$(this)
+  pulseMgt();
+})
+
 $(document).on('click','#next', function(){
   if((entry-0)<=(fetchedData-0)){
   pageCheck++;
