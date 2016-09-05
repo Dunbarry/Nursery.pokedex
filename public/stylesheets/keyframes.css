@@ -129,3 +129,16 @@
 	-webkit-animation-iteration-count: 1;
   -webkit-animation-timing-function: linear;
 }
+
+@-webkit-keyframes homeShadow{
+0%    { opacity: 0; }
+100%    { opacity: 0; }
+}
+
+.homeShadow{
+  -webkit-animation-name: homeShadow;
+  -webkit-animation-duration: 5s;
+	-webkit-transform-origin:50% 50%;
+	-webkit-animation-iteration-count: 1;
+  -webkit-animation-timing-function: linear;
+}

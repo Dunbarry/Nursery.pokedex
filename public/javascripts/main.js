@@ -7,22 +7,24 @@ var pages=0;
 var fetchedData=0;
 var prevExempt=0;
 var target="";
-var homeCheck="onHome"
+var homeCheck="onHome";
 
 function lockTimer(){
   $('.rotateBall').addClass('homeRotation')
+  $('.beltTop').addClass('homeShadow');
 }
 
 function homeClear(){
   $('.mainTop').removeClass('closeTop');
   $('.mainBottom').removeClass('closeBottom');
   $('.rotateBall').removeClass('homeRotation')
+  $('.beltTop').removeClass('homeShadow');
 }
 
 function home(){
   if(homeCheck==="notOnHome"){
   homeCheck="onHome"
-  setTimeout(lockTimer,900);
+  setTimeout(lockTimer,250);
   $('.mainTop').addClass('closeTop');
   $('.mainBottom').addClass('closeBottom');
   setTimeout(homeClear,3000);
