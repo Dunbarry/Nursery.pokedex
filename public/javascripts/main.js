@@ -7,6 +7,30 @@ var pages=0;
 var fetchedData=0;
 var prevExempt=0;
 var target="";
+var homeCheck="onHome";
+
+function lockTimer(){
+  $('.rotateBall').addClass('homeRotation')
+  $('.beltTop').addClass('homeShadow');
+}
+
+function homeClear(){
+  $('.mainTop').removeClass('closeTop');
+  $('.mainBottom').removeClass('closeBottom');
+  $('.rotateBall').removeClass('homeRotation')
+  $('.beltTop').removeClass('homeShadow');
+}
+
+function home(){
+  if(homeCheck==="notOnHome"){
+  homeCheck="onHome"
+  setTimeout(lockTimer,250);
+  $('.mainTop').addClass('closeTop');
+  $('.mainBottom').addClass('closeBottom');
+  setTimeout(homeClear,3000);
+  console.log("Home is done!")
+  }
+}
 
 function pulseClear(){
   $(target).removeClass('pulse1x');
@@ -58,6 +82,24 @@ function plaqueAdd(){
   </div>')
 }
 
+function returningHome(){
+  $('.screen').html(
+      '<nav>\
+        <span>About</span>\
+        <span>Gallery</span>\
+      </nav>\
+      <h1>Welcome to My Pokedex</h1>\
+      <p>This site will allow any user to to dynamically search through documentation of the nursery\'s current\ inhabitants. To search the Pokedex, please choose your criteria by clicking "select", then enter your query.</p>\
+      <div class="searchContain">\
+        <p id="instructions">To search by IV query must be entered as a range following this format without quotation:\
+        "30/40".</p>\
+        <span class="circleSearch" id="catSelect">select</span>\
+        <input class="query" type="text" placeholder="query"></input>\
+        <span class="circleGo" id="go">Go!</span>\
+      </div>'
+  )
+}
+
 function pageState(){
   if(pages>pageCheck){
     $('.circleNext').addClass('pulse');
@@ -103,6 +145,14 @@ function populate(data){
   }
 }
 
+$('.innerBall').click(function(){
+  target=$(this)
+  pulseMgt();
+  home();
+  setTimeout(returningHome,2000);
+  console.log("Function is done!")
+})
+
 $(document).on('click','#next', function(){
   if((entry-0)<=(fetchedData-0)){
   pageCheck++;
@@ -134,6 +184,7 @@ $(document).on('click','#catSelect', function(){
 })
 
 $(document).on('click', '#go', function(){
+  homeCheck="notOnHome"
   target='#go';
   pulseMgt();
   category="/"+options[selector];
@@ -143,21 +194,27 @@ $(document).on('click', '#go', function(){
     category=query;
     query="";
   }
-  screenClear();
-  plaqueAdd();
-  $.ajax({
-    url:category+query,
-    error: function(err) {console.error(err)},
-    method: 'GET',
-    success: function(data){
-      found=data;
-      entry=0;
-      if(options[selector]==="name"){
-        data=[data]
+  if(category==="/null"||query==="/"){
+    alert("Please select a category and enter a query.");
+  }
+  else{
+    screenClear();
+    plaqueAdd();
+    $.ajax({
+      url:category+query,
+      error: function(err) {console.error(err)},
+      method: 'GET',
+      success: function(data){
+        console.log(data);
+        found=data;
+        entry=0;
+        if(options[selector]==="name"){
+          data=[data]
+        }
+        fetchedData=data.length-1;
+        pages=data.length/2
+        populate(data);
       }
-      fetchedData=data.length-1;
-      pages=data.length/2
-      populate(data);
-      }
-  })
+    })
+  }
 })
