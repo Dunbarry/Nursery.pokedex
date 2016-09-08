@@ -194,7 +194,12 @@ $(document).on('click', '#go', function(){
   pulseMgt();
   category="/"+options[selector];
   // document.getElementById('catSelect').innerHTML
-  query="/"+(_.lowerCase($('.query').val()).split("")).filter(spaceScrub).join('');
+  if(category==="/IV"){
+    query="/"+$('.query').val();
+  }
+  else{
+    query="/"+(_.lowerCase($('.query').val()).split("")).filter(spaceScrub).join('');
+  }
   console.log(query)
   if(category==="/name"){
     category=query;
