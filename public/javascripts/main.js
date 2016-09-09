@@ -193,7 +193,6 @@ $(document).on('click', '#go', function(){
   target='#go';
   pulseMgt();
   category="/"+options[selector];
-  // document.getElementById('catSelect').innerHTML
   if(category==="/IV"){
     query="/"+$('.query').val();
   }
