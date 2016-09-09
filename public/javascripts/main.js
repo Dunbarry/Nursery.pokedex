@@ -8,6 +8,7 @@ var fetchedData=0;
 var prevExempt=0;
 var target="";
 var homeCheck="onHome";
+var standIn="";
 
 function lockTimer(){
   $('.rotateBall').addClass('homeRotation')
@@ -183,13 +184,22 @@ $(document).on('click','#catSelect', function(){
   $('#catSelect').text(options[selector]);
 })
 
+function spaceScrub(scrub){
+  return scrub !== " ";
+}
+
 $(document).on('click', '#go', function(){
   homeCheck="notOnHome"
   target='#go';
   pulseMgt();
   category="/"+options[selector];
-  // document.getElementById('catSelect').innerHTML
-  query="/"+$('.query').val();
+  if(category==="/IV"){
+    query="/"+$('.query').val();
+  }
+  else{
+    query="/"+(_.lowerCase($('.query').val()).split("")).filter(spaceScrub).join('');
+  }
+  console.log(query)
   if(category==="/name"){
     category=query;
     query="";
