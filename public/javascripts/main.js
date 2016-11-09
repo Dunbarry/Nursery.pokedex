@@ -127,7 +127,7 @@ function populate(data){
     $('#arrival0').text('Arrival: '+data[entry].arrival[0]+' on '+data[entry].arrival[1]+'!');
     $('#moves0').text('Moves: '+data[entry].moves[0]+', '+data[entry].moves[1]);
     $('#IV0').text('IV: '+data[entry].IV);
-    $('#notes0').text('Notes: '+data[entry].notes);
+    // $('#notes0').text('Notes: '+data[entry].notes);
     entry++;
     if((entry-0)<=(fetchedData-0)){
       $('#name1').text('Name: '+data[entry].name);
@@ -136,7 +136,7 @@ function populate(data){
       $('#arrival1').text('Arrival: '+data[entry].arrival[0]+' on '+data[entry].arrival[1]+'!');
       $('#moves1').text('Moves: '+data[entry].moves[0]+', '+data[entry].moves[1]);
       $('#IV1').text('IV: '+data[entry].IV);
-      $('#notes1').text('Notes: '+data[entry].notes);
+      // $('#notes1').text('Notes: '+data[entry].notes);
       entry++;
     }
     else{
@@ -156,9 +156,9 @@ $('.innerBall').click(function(){
 
 $(document).on('click','#next', function(){
   if((entry-0)<=(fetchedData-0)){
-  pageCheck++;
-  pageCap=pageCap+2;
-  populate(found);
+    pageCheck++;
+    pageCap=pageCap+2;
+    populate(found);
   }
 })
 
